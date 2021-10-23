@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.test-tab{
+    @apply border rounded m-1 py-1 cursor-pointer;
+    transition: 300ms;
+}
+
 .test-tab-success{
-    @apply flex justify-between border border-green-400 rounded m-1 bg-green-200 py-1 cursor-pointer;
+    @apply border-green-400 bg-green-200 test-tab;
 }
 
 .test-tab-fail{
-    @apply flex justify-between border border-red-400 rounded m-1 bg-red-200 py-1 cursor-pointer;
+    @apply border-red-400 bg-red-200 cursor-pointer test-tab;
 }

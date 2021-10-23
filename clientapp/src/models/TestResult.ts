@@ -1,6 +1,6 @@
-import { TestModel } from './TestModel';
-export class TestResult {
-    test: TestModel | undefined;
+import { TestCase } from './TestCase';
+export class TestCaseResult {
+    test: TestCase | undefined;
     result: string | undefined;
-    stepsSuccess: boolean | undefined;
+    stepsSuccess: boolean[] | undefined;
 }
