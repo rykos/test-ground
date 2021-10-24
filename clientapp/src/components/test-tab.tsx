@@ -22,12 +22,12 @@ export class TestTab extends Component<TestTabProps, TestTabState> {
 
     render() {
         let content;
-        if (this.state.expanded === false) 
+        if (this.state.expanded === false)
             content = <div className="flex justify-between"><h2 className="text-2xl mx-5">{this.props.testResult.test?.name}</h2><h2 className="text-xl mx-5">{this.props.testResult.result}</h2></div>
-        else 
+        else
             content = <TestTabExpanded result={this.props.testResult}></TestTabExpanded>
         return (
-            <div className={`${isSuccess(this.props.testResult.result) ? "test-tab-success" : "test-tab-fail"}`} style={{ width: "35%" }} onClick={() => { console.log(`${this.state.expanded}`); this.setState({ expanded: !this.state.expanded }) }}>
+            <div className={`${isSuccess(this.props.testResult.result) ? "test-tab-success" : "test-tab-fail"}`} style={{ width: "100%" }} onClick={() => { this.setState({ expanded: !this.state.expanded }) }}>
                 {content}
             </div>
         )

@@ -10,10 +10,10 @@ class App extends Component {
     {
       id: 0, name: "Test", requirements: [], expectedResult: "", steps: [
         "Step 1", "Step 2", "Step 3"
-      ], description: "", author: "", automation: true, category: ""
+      ], description: "Test logowania poprzez przycisk loguj", author: "", automation: true, category: ""
     },
-    { id: 1, name: "nop", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3"], description: "", author: "", automation: true, category: "" },
-    { id: 2, name: "qwe", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3"], description: "", author: "", automation: true, category: "" }
+    { id: 1, name: "nop", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3"], description: "Test logowania poprzez przycisk loguj", author: "", automation: true, category: "" },
+    { id: 2, name: "qwe", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3", "Step 4"], description: "Test logowania poprzez przycisk loguj", author: "", automation: true, category: "" }
   ];
 
   tmr: TestCaseResult[] = [
@@ -22,12 +22,33 @@ class App extends Component {
     { result: "fail", test: this.tms[2], stepsSuccess: [true, true, false] }
   ];
 
+  constructor(p: any) {
+    super(p);
+    this.tmr.sort((x, y) => {
+      if (x.result && y.result) {
+        if (x.result > y.result) return 1;
+        if (x.result < y.result) return -1;
+        return 0;
+      }
+      return (x) ? 1 : -1;
+    });
+  }
+
   render() {
     return (
-      <div className="w-full flex-col flex items-center">
-        {this.tmr.map(x => {
-          return <TestTab key={x.test?.id} testResult={x}></TestTab>
-        })}
+      <div>
+        <div className="flex w-full bg-blue-400 text-gray-100 text-xl px-5" style={{height: "30px"}}>
+          <div className="h-full">Logged in as: Admin</div>
+        </div>
+        <fieldset className="flex flex-col items-center border border-gray-400 m-auto px-10 py-4 rounded-xl bg-blue-100" style={{ width: "50%" }}>
+          {/* <div className="text-2xl">Scenario</div> */}
+          <legend className="text-2xl">Login scenario</legend>
+          <div className="w-full flex-col flex items-center">
+            {this.tmr.map(x => {
+              return <TestTab key={x.test?.id} testResult={x}></TestTab>
+            })}
+          </div>
+        </fieldset>
       </div>
     );
   }

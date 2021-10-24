@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.button-success{
+    @apply bg-green-400 p-1 rounded cursor-pointer;
+}
 
 .test-tab{
     @apply border rounded m-1 py-1 cursor-pointer;
