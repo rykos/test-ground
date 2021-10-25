@@ -15,10 +15,10 @@ export class LoginPage extends Component<{}, { redirect: boolean }> {
             return <Redirect to="/"></Redirect>
         return (
             <div>
-                <input type="text" className="border" />
-                <input type="password" className="border" />
+                <input type="text" className="border" id="login" />
+                <input type="password" className="border" id="password"/>
                 <input type="submit" value="Login" className="p-1 bg-gray-900 text-white cursor-pointer" onClick={() => {
-                    new ValidationService().login().then(_ => {
+                    new ValidationService().login("rykos", "123").then(_ => {
                         this.setState({ redirect: true });
                     });
                 }} />

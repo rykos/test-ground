@@ -36,7 +36,7 @@ export class Main extends Component {
     render() {
         return (
             <div>
-                <Navigation></Navigation>
+                {/* <Navigation></Navigation> */}
                 <fieldset className="flex flex-col items-center border border-gray-400 m-auto px-10 py-4 rounded-xl bg-blue-100" style={{ width: "50%" }}>
                     {/* <div className="text-2xl">Scenario</div> */}
                     <legend className="text-2xl">Login scenario</legend>

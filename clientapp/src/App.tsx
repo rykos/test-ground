@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { TestTab } from './components/test-tab';
-import { TestCase } from './models/TestCase';
-import { TestCaseResult } from './models/TestResult';
 import { BrowserRouter, Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { Main } from './views/main';
 import { LoginPage } from './views/LoginPage';
-import { ValidationService } from './services/ValidationService';
 import { LogoutComponent } from './components/LogoutComponent';
+import ProtectedRoute from './guard/GuardedRoute';
+import { ValidationService } from './services/ValidationService';
+import { CreateTest } from './views/CreateTest';
 
 
 class App extends Component {
@@ -24,6 +23,10 @@ class App extends Component {
           </Route>
           <Route exact path="/logout" component={LogoutComponent}>
           </Route>
+          {/* <Route exact path="/profile">
+            <Redirect to="/"></Redirect>
+          </Route> */}
+          <ProtectedRoute path="/create-test" isAuthenticated={ValidationService.isLoggedIn()} component={CreateTest}/>
           {/* Default route */}
           <Route><Redirect to="/"></Redirect></Route>
         </Switch>
