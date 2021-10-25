@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Navigation } from "../components/Navigation";
 import { TestTab } from "../components/test-tab";
 import { TestCase } from "../models/TestCase";
 import { TestCaseResult } from "../models/TestResult";
@@ -35,9 +36,7 @@ export class Main extends Component {
     render() {
         return (
             <div>
-                <div className="flex w-full bg-blue-400 text-gray-100 text-xl px-5" style={{ height: "30px" }}>
-                    <div className="h-full">Logged in as: Admin</div>
-                </div>
+                <Navigation></Navigation>
                 <fieldset className="flex flex-col items-center border border-gray-400 m-auto px-10 py-4 rounded-xl bg-blue-100" style={{ width: "50%" }}>
                     {/* <div className="text-2xl">Scenario</div> */}
                     <legend className="text-2xl">Login scenario</legend>

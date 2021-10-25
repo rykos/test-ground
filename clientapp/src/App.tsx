@@ -3,8 +3,11 @@ import './App.css';
 import { TestTab } from './components/test-tab';
 import { TestCase } from './models/TestCase';
 import { TestCaseResult } from './models/TestResult';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { Main } from './views/main';
+import { LoginPage } from './views/LoginPage';
+import { ValidationService } from './services/ValidationService';
+import { LogoutComponent } from './components/LogoutComponent';
 
 
 class App extends Component {
@@ -13,9 +16,16 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path='/'>
+          <Route path='/login'>
+            <LoginPage></LoginPage>
+          </Route>
+          <Route exact path='/'>
             <Main></Main>
           </Route>
+          <Route exact path="/logout" component={LogoutComponent}>
+          </Route>
+          {/* Default route */}
+          <Route><Redirect to="/"></Redirect></Route>
         </Switch>
       </BrowserRouter>
     )
