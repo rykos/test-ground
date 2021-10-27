@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Redirect, useHistory } from "react-router";
+import { Redirect } from "react-router";
 import { ValidationService } from "../services/ValidationService";
 
 export class LogoutComponent extends Component {

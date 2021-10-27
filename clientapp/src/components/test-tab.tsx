@@ -1,6 +1,5 @@
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import { isSuccess } from "../helpers/isState";
-import { TestCase } from "../models/TestCase";
 import { TestCaseResult } from "../models/TestResult";
 import { TestTabExpanded } from "./Test-tab-expanded";
 

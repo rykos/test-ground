@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Main } from './views/main';
 import { LoginPage } from './views/LoginPage';
 import { LogoutComponent } from './components/LogoutComponent';
@@ -26,7 +26,7 @@ class App extends Component {
           {/* <Route exact path="/profile">
             <Redirect to="/"></Redirect>
           </Route> */}
-          <ProtectedRoute path="/create-test" isAuthenticated={ValidationService.isLoggedIn()} component={CreateTest}/>
+          <ProtectedRoute path="/create-test" isAuthenticated={ValidationService.isLoggedIn()} component={CreateTest} />
           {/* Default route */}
           <Route><Redirect to="/"></Redirect></Route>
         </Switch>

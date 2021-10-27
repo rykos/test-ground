@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Redirect } from "react-router";
 import { User } from "../models/User";
 import { ValidationService } from "../services/ValidationService";
 

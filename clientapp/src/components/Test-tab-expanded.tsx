@@ -1,5 +1,4 @@
-import { Component, Fragment } from "react";
-import { TestCase } from "../models/TestCase";
+import { Component } from "react";
 import { TestCaseResult } from "../models/TestResult";
 import { TestStep } from "./TestStep";
 
