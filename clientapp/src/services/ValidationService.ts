@@ -1,9 +1,12 @@
+import { HttpClient } from './HttpClient';
 import { User } from './../models/User';
 import { BehaviorSubject, observable, Observable, Observer, Subject } from 'rxjs'
 
 export class ValidationService {
     private static readonly USERKEY = "user";
-    static ActiveUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+    private httpClient: HttpClient = new HttpClient();
+    static ActiveUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(this.getUser());
+
     static isLoggedIn(): boolean {
         if (this.getKey())
             return true;
@@ -11,7 +14,7 @@ export class ValidationService {
     }
 
     async login(username: string, password: string): Promise<void> {
-        await fetch("http://localhost:3000", { mode: "no-cors" }).then(x => {
+        await this.httpClient.fetch("http://localhost:3000", { mode: "no-cors" }).then(x => {
             let user = new User(username);
             localStorage.setItem(ValidationService.USERKEY, JSON.stringify(user));
             ValidationService.ActiveUser.next(user);
