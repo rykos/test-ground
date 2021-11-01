@@ -3,7 +3,7 @@ import { TestResultTab } from "../components/TestResultTab";
 import { TestCase } from "../models/TestCase";
 import { TestCaseResult } from "../models/TestResult";
 
-export class Main extends Component {
+export class ResultsPage extends Component {
     tms: TestCase[] = [
         {
             id: 0, name: "Test", requirements: [], expectedResult: "", steps: [

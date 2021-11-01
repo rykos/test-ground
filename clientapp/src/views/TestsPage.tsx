@@ -3,7 +3,7 @@ import { TestResultTab } from "../components/TestResultTab";
 import { TestCase } from "../models/TestCase";
 import { TestCaseResult } from "../models/TestResult";
 
-export class Main extends Component {
+export class TestsPage extends Component {
     tms: TestCase[] = [
         {
             id: 0, name: "Test", requirements: [], expectedResult: "", steps: [
@@ -41,9 +41,10 @@ export class Main extends Component {
                 </div>
                 <div className="w-full">
                     <div className="w-full items-center">
-                        {this.tmr.map(x => {
+                        {/* {this.tmr.map(x => {
                             return <TestResultTab key={x.test?.id} testResult={x}></TestResultTab>
-                        })}
+                        })} */}
+                        
                     </div>
                 </div>
             </div>

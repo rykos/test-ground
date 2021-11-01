@@ -8,7 +8,7 @@ export class ValidationService {
     static ActiveUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(this.getUser());
 
     static isLoggedIn(): boolean {
-        if (this.getKey())
+        if (this.ActiveUser.value)
             return true;
         else return false;
     }

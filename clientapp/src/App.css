@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body > #root > div {
+    height: 100vh;
+  }
+
 .button-success{
     @apply bg-green-400 p-1 rounded cursor-pointer;
 }
 
 .test-tab{
-    @apply border rounded m-1 py-1 cursor-pointer;
+    @apply border py-1 cursor-pointer;
     transition: 300ms;
 }
 

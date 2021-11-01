@@ -11,7 +11,7 @@ interface TestTabState {
     expanded: boolean;
 }
 
-export class TestTab extends Component<TestTabProps, TestTabState> {
+export class TestResultTab extends Component<TestTabProps, TestTabState> {
     constructor(p: any) {
         super(p);
         this.state = {

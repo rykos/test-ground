@@ -20,6 +20,7 @@ export class TestTabExpanded extends Component<TestTabExpandedProps> {
     render() {
         return (
             <div className="" style={{ transition: "500ms" }}>
+                {/* <div className="flex"><div className="cursor-pointer bg-gray-200 border border-white rounded p-1">Edit</div></div> */}
                 <h2 className="text-2xl mx-5">{this.props.result.test?.name}</h2>
                 <h3 className="text-xl mx-5">{this.props.result.test?.description}</h3>
                 {this.props.result.test?.steps?.map((x, i) => {

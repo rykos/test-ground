@@ -1,4 +1,6 @@
 import { ChangeEvent, Component } from "react";
+import { Link } from "react-router-dom";
+import Select from "react-select";
 
 interface createTestState {
     name: string;
@@ -47,13 +49,25 @@ export class CreateTest extends Component<{}, createTestState> {
     automaticChange(e: ChangeEvent<HTMLInputElement>) {
         this.setState({ automatic: e.target.checked });
     }
+    sv = null;
 
     render() {
+        let z = [1, 2, 3, 4, 5];
+        let opt: any[] = [];
+        z.map(x => opt.push({ value: x, label: x }));
+
         return (
             <div>
-                <div className="text-3xl">Create new test</div>
+                <div className="text-3xl text-center mb-5">Create new test</div>
                 <form action="" id="form">
                     <div className="container flex flex-col space-y-2 m-auto w-2/6">
+                        <div className="grid grid-cols-3">
+                            <div className="text-xl">Scenario</div>
+                            <Select className="col-span-2" options={opt} inputValue={''} name={""} onChange={(x) => { console.log(x); this.sv = x; this.forceUpdate(); }} value={this.sv} onInputChange={(x) => { console.log(x) }} onMenuOpen={() => { }} onMenuClose={() => { }} />
+                        </div>
+                        <div className="flex justify-center">
+                            <Link to="/"><div className="text-gray-400 underline">Create new scenario</div></Link>
+                        </div>
                         <div className="grid grid-cols-3">
                             <div className="text-xl">Name</div>
                             <textarea className="col-span-2 border border-black" value={this.state.name} onChange={this.nameChange.bind(this)}></textarea>
