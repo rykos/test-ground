@@ -34,18 +34,10 @@ export class ResultsPage extends Component {
 
     render() {
         return (
-            <div className="h-full flex justify-start">
-                <div className="h-full w-48 bg-blue-100 border-r border-gray-400 text-center">
-                    <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 1</div>
-                    <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 2</div>
-                </div>
-                <div className="w-full">
-                    <div className="w-full items-center">
-                        {this.tmr.map(x => {
-                            return <TestResultTab key={x.test?.id} testResult={x}></TestResultTab>
-                        })}
-                    </div>
-                </div>
+            <div className="w-full items-center">
+                {this.tmr.map(x => {
+                    return <TestResultTab key={x.test?.id} testResult={x}></TestResultTab>
+                })}
             </div>
         );
     }

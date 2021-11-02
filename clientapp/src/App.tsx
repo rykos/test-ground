@@ -10,6 +10,7 @@ import { CreateTest } from './views/CreateTest';
 import { Navigation } from './components/Navigation';
 import { ResultsPage } from './views/ResultsPage';
 import { TestsPage } from './views/TestsPage';
+import { TestEdit } from './views/TestEdit';
 
 
 class App extends Component {
@@ -18,16 +19,25 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Navigation></Navigation>
-        <Switch>
-          <Route exact path='/login' component={LoginPage} />
-          <Route exact path='/' component={Main} />
-          <Route exact path="/logout" component={LogoutComponent} />
-          <ProtectedRoute path="/create-test" isAuthenticated={ValidationService.isLoggedIn()} component={CreateTest} />
-          <ProtectedRoute path="/results" isAuthenticated={ValidationService.isLoggedIn()} component={ResultsPage} />
-          <ProtectedRoute path="/tests" isAuthenticated={ValidationService.isLoggedIn()} component={TestsPage} />
-          {/* Default route */}
-          <Route><Redirect to="/tests"></Redirect></Route>
-        </Switch>
+        <div className="h-full flex justify-start">
+          <div className="h-full w-48 bg-blue-100 border-r border-gray-400 text-center">
+            <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 1</div>
+            <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 2</div>
+          </div>
+          <div className="w-full">
+            <Switch>
+              <Route exact path='/login' component={LoginPage} />
+              <Route exact path='/' component={Main} />
+              <Route exact path="/logout" component={LogoutComponent} />
+              <ProtectedRoute path="/create-test" isAuthenticated={ValidationService.isLoggedIn()} component={CreateTest} />
+              <ProtectedRoute path="/results" isAuthenticated={ValidationService.isLoggedIn()} component={ResultsPage} />
+              <ProtectedRoute exact path="/tests" isAuthenticated={ValidationService.isLoggedIn()} component={TestsPage} />
+              <ProtectedRoute path="/tests/:id" isAuthenticated={ValidationService.isLoggedIn()} component={TestEdit} />
+              {/* Default route */}
+              <Route><Redirect to="/tests"></Redirect></Route>
+            </Switch>
+          </div>
+        </div>
       </BrowserRouter>
     )
   }

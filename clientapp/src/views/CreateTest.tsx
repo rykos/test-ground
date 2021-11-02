@@ -77,7 +77,7 @@ export class CreateTest extends Component<{}, createTestState> {
                             <textarea className="col-span-2 border border-black" value={this.state.description} onChange={this.descriptionChange.bind(this)}></textarea>
                         </div>
                         <div className="grid grid-cols-3">
-                            <div className="text-xl">Requirements</div>
+                            <div className="text-lg">Requirements</div>
                             <textarea className="col-span-2 border border-black" value={this.state.requirements} onChange={this.requirementsChange.bind(this)}></textarea>
                         </div>
                         <div className="grid grid-cols-3">

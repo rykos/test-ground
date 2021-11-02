@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { TestResultTab } from "../components/TestResultTab";
+import { TestDesc } from "../components/TestDesc";
 import { TestCase } from "../models/TestCase";
 import { TestCaseResult } from "../models/TestResult";
 
@@ -34,19 +34,29 @@ export class TestsPage extends Component {
 
     render() {
         return (
-            <div className="h-full flex justify-start">
-                <div className="h-full w-48 bg-blue-100 border-r border-gray-400 text-center">
-                    <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 1</div>
-                    <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 2</div>
-                </div>
-                <div className="w-full">
-                    <div className="w-full items-center">
-                        {/* {this.tmr.map(x => {
-                            return <TestResultTab key={x.test?.id} testResult={x}></TestResultTab>
-                        })} */}
-                        
+            <div className="w-full items-center">
+                <div className="bg-blue-300">
+                    <div className="grid grid-cols-10 px-2">
+                        <div className="col-span-2">
+                            <div className="text-xl">Name</div>
+                        </div>
+                        <div className="col-span-2">
+                            <div className="text-xl">Description</div>
+                        </div>
+                        <div className="col-span-1">
+                            <div className="text-xl">Auto</div>
+                        </div>
+                        <div className="col-span-2">
+                            <div className="text-xl">Type</div>
+                        </div>
+                        <div className="col-span-2">
+                            <div className="text-xl">Creator</div>
+                        </div>
                     </div>
                 </div>
+                <TestDesc index={0} test={this.tms[0]}></TestDesc>
+                <TestDesc index={1} test={this.tms[1]}></TestDesc>
+                <TestDesc index={2} test={this.tms[2]}></TestDesc>
             </div>
         );
     }
