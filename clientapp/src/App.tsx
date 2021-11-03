@@ -11,6 +11,7 @@ import { Navigation } from './components/Navigation';
 import { ResultsPage } from './views/ResultsPage';
 import { TestsPage } from './views/TestsPage';
 import { TestEdit } from './views/TestEdit';
+import { NewScenarioPage } from './views/NewScenarioPage';
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/' component={Main} />
               <Route exact path="/logout" component={LogoutComponent} />
+              <ProtectedRoute path="/create-scenario" isAuthenticated={ValidationService.isLoggedIn()} component={NewScenarioPage} />
               <ProtectedRoute path="/create-test" isAuthenticated={ValidationService.isLoggedIn()} component={CreateTest} />
               <ProtectedRoute path="/results" isAuthenticated={ValidationService.isLoggedIn()} component={ResultsPage} />
               <ProtectedRoute exact path="/tests" isAuthenticated={ValidationService.isLoggedIn()} component={TestsPage} />

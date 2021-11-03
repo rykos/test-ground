@@ -11,6 +11,7 @@
     "@types/node": "^12.20.33",
     "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10",
+    "debounce": "^1.2.1",
     "react": "^17.0.2",
     "react-collapsible": "^2.8.4",
     "react-dom": "^17.0.2",
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/debounce": "^1.2.1",
     "@types/react-router-dom": "^5.3.1",
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",

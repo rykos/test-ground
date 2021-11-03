@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { useParams } from "react-router";
 
 export class TestEdit extends Component {
     id: number;

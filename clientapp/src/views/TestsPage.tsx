@@ -1,4 +1,5 @@
-import { Component } from "react";
+import { ChangeEvent, Component } from "react";
+import { debounce } from "debounce";
 import { TestDesc } from "../components/TestDesc";
 import { TestCase } from "../models/TestCase";
 import { TestCaseResult } from "../models/TestResult";
@@ -6,12 +7,12 @@ import { TestCaseResult } from "../models/TestResult";
 export class TestsPage extends Component {
     tms: TestCase[] = [
         {
-            id: 0, name: "Test", requirements: [], expectedResult: "", steps: [
+            id: 0, name: "Test logowania", requirements: [], expectedResult: "Uzytkownik zostanie poprawnie zalogowany", steps: [
                 "Step 1", "Step 2", "Step 3"
-            ], description: "Test logowania poprzez przycisk loguj", author: "", automation: true, category: ""
+            ], description: "Test logowania poprzez przycisk loguj", author: "Michał Rykowski", automation: true, category: ""
         },
-        { id: 1, name: "nop", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3"], description: "Test logowania poprzez przycisk loguj", author: "", automation: true, category: "" },
-        { id: 2, name: "qwe", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3", "Step 4"], description: "Test logowania poprzez przycisk loguj", author: "", automation: true, category: "" }
+        { id: 1, name: "Test rejestracji", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3"], description: "Test logowania poprzez przycisk loguj", author: "Michał Rykowski", automation: true, category: "" },
+        { id: 2, name: "Test usuwania konta", requirements: [], expectedResult: "", steps: ["Step 1", "Step 2", "Step 3", "Step 4"], description: "Test logowania poprzez przycisk loguj", author: "Michał Rykowski", automation: true, category: "" }
     ];
 
     tmr: TestCaseResult[] = [
@@ -22,6 +23,7 @@ export class TestsPage extends Component {
 
     constructor(p: any) {
         super(p);
+        this.searchBarChange = this.searchBarChange.bind(this)
         this.tmr.sort((x, y) => {
             if (x.result && y.result) {
                 if (x.result > y.result) return 1;
@@ -32,9 +34,17 @@ export class TestsPage extends Component {
         });
     }
 
+    searchBarChange(x: ChangeEvent<HTMLInputElement>) {
+        console.log(x.target.value);
+    }
+
     render() {
         return (
             <div className="w-full items-center">
+                <div className="flex space-x-2">
+                    <div>Search</div>
+                    <input className="border" type="text" placeholder="search phrase" onChange={debounce((x: any) => { this.searchBarChange(x) }, 350)} />
+                </div>
                 <div className="bg-blue-300">
                     <div className="grid grid-cols-10 px-2">
                         <div className="col-span-2">

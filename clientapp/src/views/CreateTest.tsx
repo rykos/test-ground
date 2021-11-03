@@ -66,7 +66,7 @@ export class CreateTest extends Component<{}, createTestState> {
                             <Select className="col-span-2" options={opt} inputValue={''} name={""} onChange={(x) => { console.log(x); this.sv = x; this.forceUpdate(); }} value={this.sv} onInputChange={(x) => { console.log(x) }} onMenuOpen={() => { }} onMenuClose={() => { }} />
                         </div>
                         <div className="flex justify-center">
-                            <Link to="/"><div className="text-gray-400 underline">Create new scenario</div></Link>
+                            <Link to="/create-scenario"><div className="text-gray-400 underline">Create new scenario</div></Link>
                         </div>
                         <div className="grid grid-cols-3">
                             <div className="text-xl">Name</div>
