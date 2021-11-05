@@ -1,3 +1,5 @@
-export class TestSuite {
-    id: string | undefined;
+export interface TestSuite {
+    id: string;
+    name: string;
+    tests: number | undefined;
 }
