@@ -1,8 +1,8 @@
-import { randomInt } from "crypto";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
 export class NewScenarioPage extends Component {
+
     render() {
         return (
             <div>

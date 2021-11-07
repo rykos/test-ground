@@ -13,6 +13,7 @@ import { TestsPage } from './views/TestsPage';
 import { TestEdit } from './views/TestEdit';
 import { NewScenarioPage } from './views/NewScenarioPage';
 import { ScenarioEdit } from './views/ScenarioEdit';
+import { HelperColumn } from './components/HelperColumn';
 
 
 class App extends Component {
@@ -22,10 +23,7 @@ class App extends Component {
       <BrowserRouter>
         <Navigation></Navigation>
         <div className="h-full flex justify-start">
-          <div className="min-h-screen w-48 bg-blue-100 border-r border-gray-400 text-center">
-            <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 1</div>
-            <div className="border-b border-gray-400 p-1 cursor-pointer hover:bg-yellow-100">Item 2</div>
-          </div>
+          <HelperColumn></HelperColumn>
           <div className="w-full">
             <Switch>
               <Route exact path='/login' component={LoginPage} />
